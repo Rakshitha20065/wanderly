@@ -1,0 +1,2894 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wanderly | Travel & Lifestyle</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* ============================================================
+   GENERAL
+============================================================ */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"DM Sans",sans-serif;
+    background:#f8fbfa;
+    color:#173042;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+/* ============================================================
+   NAVBAR
+============================================================ */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:22px 7%;
+
+    background:rgba(255,255,255,.78);
+
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid rgba(255,255,255,.5);
+}
+
+.logo{
+    font-family:"Playfair Display",serif;
+    font-size:28px;
+    font-weight:700;
+    color:#0c5360;
+}
+
+.logo span{
+    color:#f29d61;
+}
+
+.nav-links{
+    display:flex;
+    gap:34px;
+    list-style:none;
+    font-size:14px;
+    font-weight:600;
+}
+
+.nav-links a{
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#ef8650;
+}
+
+
+/* ============================================================
+   HERO
+============================================================ */
+
+.hero{
+    min-height:100vh;
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    background:
+    linear-gradient(
+        110deg,
+        rgba(255,245,226,.96),
+        rgba(218,244,244,.78),
+        rgba(238,225,255,.72)
+    );
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:550px;
+    height:550px;
+
+    right:-180px;
+    top:-170px;
+
+    border-radius:50%;
+
+    background:rgba(255,181,126,.22);
+
+    filter:blur(3px);
+}
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    width:400px;
+    height:400px;
+
+    left:-180px;
+    bottom:-170px;
+
+    border-radius:50%;
+
+    background:rgba(117,207,207,.20);
+
+    filter:blur(3px);
+}
+
+
+/* ============================================================
+   HERO CONTENT
+============================================================ */
+
+.hero-content{
+    width:42%;
+
+    margin-left:7%;
+
+    position:relative;
+
+    z-index:20;
+}
+
+.small-title{
+    color:#e88953;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    font-size:13px;
+
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(48px,6vw,88px);
+
+    line-height:.98;
+
+    color:#0c4e59;
+
+    margin-bottom:24px;
+}
+
+.hero h1 span{
+    color:#e98b54;
+}
+
+.hero p{
+    font-size:17px;
+
+    line-height:1.8;
+
+    max-width:560px;
+
+    color:#47656b;
+
+    margin-bottom:32px;
+}
+
+.hero-buttons{
+    display:flex;
+
+    gap:14px;
+
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 25px;
+
+    border-radius:40px;
+
+    font-weight:700;
+
+    font-size:14px;
+
+    transition:.3s;
+}
+
+.btn-primary{
+    background:#0d6672;
+
+    color:white;
+
+    box-shadow:
+    0 10px 25px rgba(13,102,114,.25);
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+
+    background:#084e58;
+}
+
+.btn-outline{
+    border:1.5px solid #0d6672;
+
+    color:#0d6672;
+}
+
+.btn-outline:hover{
+    background:#0d6672;
+
+    color:white;
+}
+
+
+/* ============================================================
+   GLOBE
+============================================================ */
+
+.globe-area{
+    position:absolute;
+
+    right:3%;
+
+    width:54%;
+
+    height:100%;
+
+    z-index:5;
+}
+
+#globe{
+    width:100%;
+    height:100%;
+}
+
+.travel-badge{
+    position:absolute;
+
+    right:8%;
+
+    bottom:18%;
+
+    background:rgba(255,255,255,.9);
+
+    backdrop-filter:blur(12px);
+
+    padding:15px 20px;
+
+    border-radius:18px;
+
+    box-shadow:
+    0 15px 40px rgba(20,70,80,.14);
+
+    z-index:30;
+}
+
+.travel-badge strong{
+    display:block;
+
+    color:#0c5662;
+
+    font-size:14px;
+}
+
+.travel-badge span{
+    font-size:12px;
+
+    color:#718589;
+}
+
+
+/* ============================================================
+   DISCOVER
+============================================================ */
+
+.discover{
+    padding:110px 7%;
+
+    background:
+    linear-gradient(
+        135deg,
+        #fffaf1,
+        #eaf8f5,
+        #edf6ff
+    );
+}
+
+.section-heading{
+    max-width:700px;
+
+    margin-bottom:55px;
+}
+
+.section-heading .eyebrow{
+    color:#e48651;
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    margin-bottom:12px;
+}
+
+.section-heading h2{
+    font-family:"Playfair Display",serif;
+
+    font-size:48px;
+
+    color:#104d58;
+
+    margin-bottom:16px;
+}
+
+.section-heading p{
+    color:#60777b;
+
+    line-height:1.8;
+}
+
+.destination-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:25px;
+}
+
+.destination-card{
+    height:430px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:28px;
+
+    box-shadow:
+    0 18px 45px rgba(18,60,70,.13);
+
+    transition:.4s;
+}
+
+.destination-card:hover{
+    transform:translateY(-8px);
+}
+
+.destination-card img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.6s;
+}
+
+.destination-card:hover img{
+    transform:scale(1.07);
+}
+
+.destination-overlay{
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-end;
+
+    padding:28px;
+
+    background:
+    linear-gradient(
+        transparent 35%,
+        rgba(0,35,40,.78)
+    );
+
+    color:white;
+}
+
+.destination-overlay h3{
+    font-family:"Playfair Display",serif;
+
+    font-size:30px;
+
+    margin-bottom:7px;
+}
+
+.destination-overlay p{
+    font-size:13px;
+
+    opacity:.9;
+}
+
+
+/* ============================================================
+   EXPERIENCE
+============================================================ */
+
+.experience{
+    padding:110px 7%;
+
+    background:
+    linear-gradient(
+        135deg,
+        #173c4a,
+        #20586a,
+        #286b70
+    );
+
+    color:white;
+}
+
+.experience-wrapper{
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+}
+
+.experience-image{
+    height:560px;
+
+    border-radius:32px;
+
+    overflow:hidden;
+}
+
+.experience-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+.experience-text .eyebrow{
+    color:#ffb278;
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+}
+
+.experience-text h2{
+    font-family:"Playfair Display",serif;
+
+    font-size:52px;
+
+    line-height:1.1;
+
+    margin-bottom:22px;
+}
+
+.experience-text p{
+    color:#c8dfe2;
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+}
+
+.experience-list{
+    display:grid;
+
+    gap:17px;
+}
+
+.experience-item{
+    display:flex;
+
+    gap:15px;
+
+    align-items:center;
+}
+
+.experience-icon{
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(255,255,255,.12);
+}
+
+.experience-item span{
+    font-size:14px;
+
+    color:#e1f0f1;
+}
+
+
+/* ============================================================
+   MOMENTS
+============================================================ */
+
+.moments{
+    padding:110px 7%;
+
+    background:#fffdf8;
+}
+
+.moments-grid{
+    display:grid;
+
+    grid-template-columns:
+    1.2fr .8fr 1fr;
+
+    grid-template-rows:
+    240px 240px;
+
+    gap:18px;
+}
+
+.moment{
+    overflow:hidden;
+
+    border-radius:22px;
+}
+
+.moment img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+}
+
+.moment:hover img{
+    transform:scale(1.06);
+}
+
+.moment.large{
+    grid-row:span 2;
+}
+
+
+/* ============================================================
+   JOURNAL
+============================================================ */
+
+.journal{
+    padding:110px 7%;
+
+    background:#eef7f5;
+}
+
+.journal-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:25px;
+}
+
+.journal-card{
+    background:white;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 15px 40px rgba(30,70,75,.09);
+
+    transition:.3s;
+}
+
+.journal-card:hover{
+    transform:translateY(-7px);
+}
+
+.journal-card img{
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+}
+
+.journal-content{
+    padding:25px;
+}
+
+.journal-content small{
+    color:#e48853;
+
+    font-weight:700;
+}
+
+.journal-content h3{
+    font-family:"Playfair Display",serif;
+
+    color:#104f59;
+
+    font-size:24px;
+
+    margin:10px 0;
+}
+
+.journal-content p{
+    color:#718185;
+
+    line-height:1.7;
+
+    font-size:14px;
+}
+
+
+/* ============================================================
+   NEWSLETTER
+============================================================ */
+
+.newsletter{
+    margin:90px 7%;
+
+    padding:70px;
+
+    border-radius:35px;
+
+    background:
+    linear-gradient(
+        120deg,
+        #0e5964,
+        #287b7d,
+        #7b5b86
+    );
+
+    color:white;
+
+    text-align:center;
+}
+
+.newsletter h2{
+    font-family:"Playfair Display",serif;
+
+    font-size:44px;
+
+    margin-bottom:15px;
+}
+
+.newsletter p{
+    color:#dceff0;
+
+    margin-bottom:30px;
+}
+
+.newsletter-form{
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+}
+
+.newsletter-form input{
+    width:300px;
+
+    padding:15px 20px;
+
+    border:0;
+
+    border-radius:30px;
+
+    outline:none;
+}
+
+.newsletter-form button{
+    border:0;
+
+    padding:15px 25px;
+
+    border-radius:30px;
+
+    background:#ffb176;
+
+    color:#17464d;
+
+    font-weight:700;
+
+    cursor:pointer;
+}
+
+
+/* ============================================================
+   FOOTER
+============================================================ */
+
+footer{
+    padding:35px 7%;
+
+    background:#102934;
+
+    color:#c9dfe1;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    font-size:13px;
+}
+
+footer strong{
+    color:white;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:20px;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media(max-width:950px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        min-height:1000px;
+
+        flex-direction:column;
+
+        justify-content:flex-start;
+
+        padding-top:130px;
+    }
+
+    .hero-content{
+        width:86%;
+
+        margin:0 auto;
+
+        text-align:center;
+
+        z-index:30;
+    }
+
+    .hero p{
+        margin-left:auto;
+
+        margin-right:auto;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .globe-area{
+        position:absolute;
+
+        width:100%;
+
+        height:520px;
+
+        right:0;
+
+        bottom:0;
+    }
+
+    .destination-grid,
+    .journal-grid{
+        grid-template-columns:1fr;
+    }
+
+    .experience-wrapper{
+        grid-template-columns:1fr;
+    }
+
+    .moments-grid{
+        grid-template-columns:1fr 1fr;
+
+        grid-template-rows:
+        220px 220px 220px;
+    }
+
+    .moment.large{
+        grid-row:span 1;
+    }
+
+    .newsletter{
+        padding:45px 25px;
+    }
+
+    .newsletter-form{
+        flex-direction:column;
+
+        align-items:center;
+    }
+
+    .newsletter-form input{
+        width:100%;
+
+        max-width:350px;
+    }
+
+    footer{
+        flex-direction:column;
+
+        gap:12px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ============================================================
+   NAVBAR
+============================================================ -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        Wander<span>ly</span>
+    </div>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="#home">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="#discover">
+                Discover
+            </a>
+        </li>
+
+        <li>
+            <a href="#experience">
+                Experience
+            </a>
+        </li>
+
+        <li>
+            <a href="#moments">
+                Moments
+            </a>
+        </li>
+
+        <li>
+            <a href="#journal">
+                Journal
+            </a>
+        </li>
+
+        <li>
+            <a href="#plan">
+                Plan a Trip
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- ============================================================
+   HERO
+============================================================ -->
+
+<section class="hero" id="home">
+
+
+    <div class="hero-content">
+
+        <div class="small-title">
+            Travel • Explore • Live
+        </div>
+
+
+        <h1>
+            Collect moments,
+            <span>not things.</span>
+        </h1>
+
+
+        <p>
+            Discover places that make you slow down, breathe deeper
+            and collect memories worth keeping. From peaceful beaches
+            to majestic mountains, your next story starts here.
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#discover"
+                class="btn btn-primary"
+            >
+                Explore destinations
+            </a>
+
+
+            <a
+                href="#experience"
+                class="btn btn-outline"
+            >
+                View experiences
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- 3D GLOBE -->
+
+    <div class="globe-area">
+
+        <div id="globe"></div>
+
+
+        <div class="travel-badge">
+
+            <strong>
+                🌍 Your world is waiting
+            </strong>
+
+            <span>
+                Dream • Discover • Wander
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+   DISCOVER
+============================================================ -->
+
+<section class="discover" id="discover">
+
+
+    <div class="section-heading">
+
+        <div class="eyebrow">
+            Discover
+        </div>
+
+
+        <h2>
+            Places that stay with you.
+        </h2>
+
+
+        <p>
+            Explore colourful landscapes, unforgettable cultures
+            and destinations that turn an ordinary trip into a
+            beautiful memory.
+        </p>
+
+    </div>
+
+
+    <div class="destination-grid">
+
+
+        <div class="destination-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1593693411515-c20261bcad6e?auto=format&fit=crop&w=1200&q=90"
+                alt="Kerala"
+            >
+
+
+            <div class="destination-overlay">
+
+                <h3>
+                    Kerala
+                </h3>
+
+                <p>
+                    Backwaters • Green landscapes • Slow living
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="destination-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=1200&q=90"
+                alt="Rajasthan"
+            >
+
+
+            <div class="destination-overlay">
+
+                <h3>
+                    Rajasthan
+                </h3>
+
+                <p>
+                    Royal cities • Desert sunsets • Culture
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="destination-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1504598318550-17eba1008a68?auto=format&fit=crop&w=1200&q=90"
+                alt="Himalayas"
+            >
+
+
+            <div class="destination-overlay">
+
+                <h3>
+                    Himalayas
+                </h3>
+
+                <p>
+                    Mountains • Adventure • Fresh air
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+   EXPERIENCE
+============================================================ -->
+
+<section class="experience" id="experience">
+
+
+    <div class="experience-wrapper">
+
+
+        <div class="experience-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=90"
+                alt="Travel experience"
+            >
+
+        </div>
+
+
+        <div class="experience-text">
+
+            <div class="eyebrow">
+                The experience
+            </div>
+
+
+            <h2>
+                Travel isn't just about where you go.
+            </h2>
+
+
+            <p>
+                It is about waking up somewhere new, tasting something
+                you've never tried, meeting people who become memories,
+                and seeing the world from a completely different perspective.
+            </p>
+
+
+            <div class="experience-list">
+
+
+                <div class="experience-item">
+
+                    <div class="experience-icon">
+                        🌅
+                    </div>
+
+                    <span>
+                        Chasing unforgettable sunsets
+                    </span>
+
+                </div>
+
+
+                <div class="experience-item">
+
+                    <div class="experience-icon">
+                        🥾
+                    </div>
+
+                    <span>
+                        Discovering hidden places
+                    </span>
+
+                </div>
+
+
+                <div class="experience-item">
+
+                    <div class="experience-icon">
+                        🍜
+                    </div>
+
+                    <span>
+                        Experiencing local food & culture
+                    </span>
+
+                </div>
+
+
+                <div class="experience-item">
+
+                    <div class="experience-icon">
+                        📸
+                    </div>
+
+                    <span>
+                        Collecting moments instead of things
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+   TRAVEL MOMENTS
+============================================================ -->
+
+<section class="moments" id="moments">
+
+
+    <div class="section-heading">
+
+        <div class="eyebrow">
+            Travel moments
+        </div>
+
+
+        <h2>
+            A little inspiration for your next adventure.
+        </h2>
+
+    </div>
+
+
+    <div class="moments-grid">
+
+
+        <div class="moment large">
+
+            <img
+                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=90"
+                alt="Travel"
+            >
+
+        </div>
+
+
+        <div class="moment">
+
+            <img
+                src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1000&q=90"
+                alt="Nature"
+            >
+
+        </div>
+
+
+        <div class="moment">
+
+            <img
+                src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1400&q=90"
+                alt="Beach"
+            >
+
+        </div>
+
+
+        <div class="moment">
+
+            <img
+                src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1000&q=90"
+                alt="Mountain"
+            >
+
+        </div>
+
+
+        <div class="moment">
+
+            <img
+                src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1000&q=90"
+                alt="Landscape"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+   JOURNAL
+============================================================ -->
+
+<section class="journal" id="journal">
+
+
+    <div class="section-heading">
+
+        <div class="eyebrow">
+            Wanderly journal
+        </div>
+
+
+        <h2>
+            Stories from the road.
+        </h2>
+
+
+        <p>
+            Small travel ideas, beautiful places and inspiration
+            for your next journey.
+        </p>
+
+    </div>
+
+
+    <div class="journal-grid">
+
+
+        <article class="journal-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=90"
+                alt="Weekend escape"
+            >
+
+
+            <div class="journal-content">
+
+                <small>
+                    WEEKEND ESCAPES
+                </small>
+
+
+                <h3>
+                    How to make a short trip feel unforgettable
+                </h3>
+
+
+                <p>
+                    You don't always need weeks to travel.
+                    Sometimes one beautiful weekend is enough.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <article class="journal-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1000&q=90"
+                alt="Travel photography"
+            >
+
+
+            <div class="journal-content">
+
+                <small>
+                    TRAVEL PHOTOGRAPHY
+                </small>
+
+
+                <h3>
+                    Capture the feeling, not just the place
+                </h3>
+
+
+                <p>
+                    Simple ways to turn your travel photographs
+                    into stories you'll want to revisit.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <article class="journal-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1000&q=90"
+                alt="Travel inspiration"
+            >
+
+
+            <div class="journal-content">
+
+                <small>
+                    TRAVEL INSPIRATION
+                </small>
+
+
+                <h3>
+                    Places that deserve a place on your list
+                </h3>
+
+
+                <p>
+                    From peaceful villages to colourful coastal
+                    towns, discover ideas for your next escape.
+                </p>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+   NEWSLETTER
+============================================================ -->
+
+<section class="newsletter" id="plan">
+
+
+    <h2>
+        Keep wandering.
+    </h2>
+
+
+    <p>
+        Get beautiful destinations and travel inspiration in your inbox.
+    </p>
+
+
+    <div class="newsletter-form">
+
+        <input
+            type="email"
+            placeholder="Enter your email"
+        >
+
+
+        <button>
+            Join the journey
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ============================================================
+   FOOTER
+============================================================ -->
+
+<footer>
+
+    <strong>
+        Wanderly
+    </strong>
+
+
+    <span>
+        Made for people who love to explore.
+    </span>
+
+</footer>
+
+
+
+<!-- ============================================================
+   THREE.JS
+============================================================ -->
+
+<script type="importmap">
+
+{
+    "imports":{
+        "three":
+        "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js"
+    }
+}
+
+</script>
+
+
+<script type="module">
+
+import * as THREE from "three";
+
+
+/* ============================================================
+   SCENE
+============================================================ */
+
+const container =
+    document.getElementById("globe");
+
+
+const scene =
+    new THREE.Scene();
+
+
+
+/* ============================================================
+   CAMERA
+============================================================ */
+
+const camera =
+    new THREE.PerspectiveCamera(
+
+        35,
+
+        container.clientWidth /
+        container.clientHeight,
+
+        0.1,
+
+        100
+
+    );
+
+
+camera.position.set(
+    0,
+    0,
+    5.7
+);
+
+
+
+/* ============================================================
+   RENDERER
+============================================================ */
+
+const renderer =
+    new THREE.WebGLRenderer({
+
+        antialias:true,
+
+        alpha:true
+
+    });
+
+
+renderer.setPixelRatio(
+
+    Math.min(
+        window.devicePixelRatio,
+        2
+    )
+
+);
+
+
+renderer.setSize(
+
+    container.clientWidth,
+
+    container.clientHeight
+
+);
+
+
+renderer.outputColorSpace =
+    THREE.SRGBColorSpace;
+
+
+container.appendChild(
+    renderer.domElement
+);
+
+
+
+/* ============================================================
+   LIGHT
+============================================================ */
+
+const ambientLight =
+    new THREE.AmbientLight(
+        0xffffff,
+        1.6
+    );
+
+
+scene.add(
+    ambientLight
+);
+
+
+const sunLight =
+    new THREE.DirectionalLight(
+        0xffffff,
+        2.8
+    );
+
+
+sunLight.position.set(
+    5,
+    3,
+    5
+);
+
+
+scene.add(
+    sunLight
+);
+
+
+
+/* ============================================================
+   EARTH GROUP
+============================================================ */
+
+const earthGroup =
+    new THREE.Group();
+
+
+scene.add(
+    earthGroup
+);
+
+
+
+/* ============================================================
+   EARTH
+============================================================ */
+
+const textureLoader =
+    new THREE.TextureLoader();
+
+
+const earthTexture =
+    textureLoader.load(
+
+        "https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg"
+
+    );
+
+
+earthTexture.colorSpace =
+    THREE.SRGBColorSpace;
+
+
+const earthGeometry =
+    new THREE.SphereGeometry(
+
+        1.75,
+
+        96,
+
+        96
+
+    );
+
+
+const earthMaterial =
+    new THREE.MeshPhongMaterial({
+
+        map:earthTexture,
+
+        color:0xffffff,
+
+        shininess:18,
+
+        specular:
+        new THREE.Color(
+            0x438db0
+        )
+
+    });
+
+
+const earth =
+    new THREE.Mesh(
+
+        earthGeometry,
+
+        earthMaterial
+
+    );
+
+
+earthGroup.add(
+    earth
+);
+
+
+
+/* ============================================================
+   CLOUDS
+============================================================ */
+
+const cloudTexture =
+    textureLoader.load(
+
+        "https://threejs.org/examples/textures/planets/earth_clouds_1024.png"
+
+    );
+
+
+const cloudGeometry =
+    new THREE.SphereGeometry(
+
+        1.785,
+
+        96,
+
+        96
+
+    );
+
+
+const cloudMaterial =
+    new THREE.MeshPhongMaterial({
+
+        map:cloudTexture,
+
+        transparent:true,
+
+        opacity:.34,
+
+        depthWrite:false
+
+    });
+
+
+const clouds =
+    new THREE.Mesh(
+
+        cloudGeometry,
+
+        cloudMaterial
+
+    );
+
+
+earthGroup.add(
+    clouds
+);
+
+
+
+/* ============================================================
+   ATMOSPHERE
+============================================================ */
+
+const atmosphereGeometry =
+    new THREE.SphereGeometry(
+
+        1.93,
+
+        64,
+
+        64
+
+    );
+
+
+const atmosphereMaterial =
+    new THREE.MeshBasicMaterial({
+
+        color:0x4fdcff,
+
+        transparent:true,
+
+        opacity:.13,
+
+        side:THREE.BackSide
+
+    });
+
+
+const atmosphere =
+    new THREE.Mesh(
+
+        atmosphereGeometry,
+
+        atmosphereMaterial
+
+    );
+
+
+earthGroup.add(
+    atmosphere
+);
+
+
+
+/* ============================================================
+   STARS
+============================================================ */
+
+const starsGeometry =
+    new THREE.BufferGeometry();
+
+
+const starPositions = [];
+
+
+for(
+    let i=0;
+    i<700;
+    i++
+){
+
+    const radius =
+        7 + Math.random()*6;
+
+
+    const theta =
+        Math.random()*Math.PI*2;
+
+
+    const phi =
+        Math.acos(
+            2*Math.random()-1
+        );
+
+
+    starPositions.push(
+
+        radius *
+        Math.sin(phi) *
+        Math.cos(theta),
+
+        radius *
+        Math.sin(phi) *
+        Math.sin(theta),
+
+        radius *
+        Math.cos(phi)
+
+    );
+
+}
+
+
+starsGeometry.setAttribute(
+
+    "position",
+
+    new THREE.Float32BufferAttribute(
+
+        starPositions,
+
+        3
+
+    )
+
+);
+
+
+const starsMaterial =
+    new THREE.PointsMaterial({
+
+        color:0xffffff,
+
+        size:.025,
+
+        transparent:true,
+
+        opacity:.75
+
+    });
+
+
+const stars =
+    new THREE.Points(
+
+        starsGeometry,
+
+        starsMaterial
+
+    );
+
+
+scene.add(
+    stars
+);
+
+
+
+/* ============================================================
+   ORBIT RING
+============================================================ */
+
+const orbitCurve =
+    new THREE.EllipseCurve(
+
+        0,
+
+        0,
+
+        2.18,
+
+        2.18,
+
+        0,
+
+        Math.PI*2,
+
+        false,
+
+        0
+
+    );
+
+
+const orbitPoints =
+    orbitCurve.getPoints(180);
+
+
+const orbitGeometry =
+    new THREE.BufferGeometry();
+
+
+orbitGeometry.setFromPoints(
+
+    orbitPoints.map(
+
+        p =>
+
+        new THREE.Vector3(
+
+            p.x,
+
+            0,
+
+            p.y
+
+        )
+
+    )
+
+);
+
+
+const orbitMaterial =
+    new THREE.LineBasicMaterial({
+
+        color:0xffffff,
+
+        transparent:true,
+
+        opacity:.18
+
+    });
+
+
+const orbitLine =
+    new THREE.Line(
+
+        orbitGeometry,
+
+        orbitMaterial
+
+    );
+
+
+earthGroup.add(
+    orbitLine
+);
+
+
+
+/* ============================================================
+   ✈️ NATURAL SMALL PASSENGER AIRPLANE
+============================================================ */
+
+const airplane =
+    new THREE.Group();
+
+
+/* ---------- materials ---------- */
+
+const whiteMaterial =
+    new THREE.MeshStandardMaterial({
+
+        color:0xf8fbff,
+
+        roughness:.28,
+
+        metalness:.12
+
+    });
+
+
+const silverMaterial =
+    new THREE.MeshStandardMaterial({
+
+        color:0xd9e2e4,
+
+        roughness:.30,
+
+        metalness:.15
+
+    });
+
+
+const blueMaterial =
+    new THREE.MeshStandardMaterial({
+
+        color:0x19779b,
+
+        roughness:.30,
+
+        metalness:.10
+
+    });
+
+
+const darkMaterial =
+    new THREE.MeshStandardMaterial({
+
+        color:0x1d3139,
+
+        roughness:.20,
+
+        metalness:.20
+
+    });
+
+
+
+/* ============================================================
+   FUSELAGE
+============================================================ */
+
+const fuselage =
+    new THREE.Mesh(
+
+        new THREE.CapsuleGeometry(
+
+            .068,
+
+            .60,
+
+            8,
+
+            16
+
+        ),
+
+        whiteMaterial
+
+    );
+
+
+fuselage.rotation.z =
+    Math.PI/2;
+
+
+airplane.add(
+    fuselage
+);
+
+
+
+/* ============================================================
+   SHARP NOSE
+============================================================ */
+
+const nose =
+    new THREE.Mesh(
+
+        new THREE.ConeGeometry(
+
+            .073,
+
+            .19,
+
+            24
+
+        ),
+
+        whiteMaterial
+
+    );
+
+
+nose.rotation.z =
+    -Math.PI/2;
+
+
+nose.position.x =
+    .395;
+
+
+airplane.add(
+    nose
+);
+
+
+
+/* ============================================================
+   COCKPIT
+============================================================ */
+
+const cockpit =
+    new THREE.Mesh(
+
+        new THREE.SphereGeometry(
+
+            .069,
+
+            16,
+
+            12
+
+        ),
+
+        darkMaterial
+
+    );
+
+
+cockpit.scale.set(
+
+    .75,
+
+    .35,
+
+    .65
+
+);
+
+
+cockpit.position.set(
+
+    .32,
+
+    .035,
+
+    0
+
+);
+
+
+airplane.add(
+    cockpit
+);
+
+
+
+/* ============================================================
+   BLUE BODY STRIPE
+============================================================ */
+
+const stripe =
+    new THREE.Mesh(
+
+        new THREE.CylinderGeometry(
+
+            .069,
+
+            .069,
+
+            .40,
+
+            20
+
+        ),
+
+        blueMaterial
+
+    );
+
+
+stripe.rotation.z =
+    Math.PI/2;
+
+
+stripe.position.x =
+    -.015;
+
+
+airplane.add(
+    stripe
+);
+
+
+
+/* ============================================================
+   NATURAL SWEPT WINGS
+============================================================ */
+
+function createWing(side){
+
+    const geometry =
+        new THREE.BufferGeometry();
+
+
+    const s = side;
+
+
+    const vertices =
+        new Float32Array([
+
+             .12,
+             0,
+             .035*s,
+
+            -.08,
+             0,
+             .30*s,
+
+            -.24,
+             0,
+             .24*s,
+
+            -.18,
+             0,
+             .035*s
+
+        ]);
+
+
+    geometry.setAttribute(
+
+        "position",
+
+        new THREE.BufferAttribute(
+
+            vertices,
+
+            3
+
+        )
+
+    );
+
+
+    geometry.setIndex([
+
+        0,1,2,
+
+        0,2,3
+
+    ]);
+
+
+    geometry.computeVertexNormals();
+
+
+    return new THREE.Mesh(
+
+        geometry,
+
+        whiteMaterial
+
+    );
+
+}
+
+
+airplane.add(
+    createWing(1)
+);
+
+
+airplane.add(
+    createWing(-1)
+);
+
+
+
+/* ============================================================
+   TAIL WINGS
+============================================================ */
+
+function createTailWing(side){
+
+    const geometry =
+        new THREE.BufferGeometry();
+
+
+    const s = side;
+
+
+    const vertices =
+        new Float32Array([
+
+            -.20,
+            0,
+            .025*s,
+
+            -.30,
+            0,
+            .14*s,
+
+            -.39,
+            0,
+            .10*s,
+
+            -.31,
+            0,
+            .025*s
+
+        ]);
+
+
+    geometry.setAttribute(
+
+        "position",
+
+        new THREE.BufferAttribute(
+
+            vertices,
+
+            3
+
+        )
+
+    );
+
+
+    geometry.setIndex([
+
+        0,1,2,
+
+        0,2,3
+
+    ]);
+
+
+    geometry.computeVertexNormals();
+
+
+    return new THREE.Mesh(
+
+        geometry,
+
+        silverMaterial
+
+    );
+
+}
+
+
+airplane.add(
+    createTailWing(1)
+);
+
+
+airplane.add(
+    createTailWing(-1)
+);
+
+
+
+/* ============================================================
+   VERTICAL TAIL
+============================================================ */
+
+const tailGeometry =
+    new THREE.BufferGeometry();
+
+
+tailGeometry.setAttribute(
+
+    "position",
+
+    new THREE.Float32BufferAttribute(
+
+        [
+
+            -.36,
+            0,
+            0,
+
+            -.19,
+            0,
+            0,
+
+            -.30,
+            .14,
+            0
+
+        ],
+
+        3
+
+    )
+
+);
+
+
+tailGeometry.setIndex([
+    0,1,2
+]);
+
+
+tailGeometry.computeVertexNormals();
+
+
+const verticalTail =
+    new THREE.Mesh(
+
+        tailGeometry,
+
+        blueMaterial
+
+    );
+
+
+airplane.add(
+    verticalTail
+);
+
+
+
+/* ============================================================
+   ENGINES
+============================================================ */
+
+function createEngine(z){
+
+    const engine =
+        new THREE.Mesh(
+
+            new THREE.CylinderGeometry(
+
+                .028,
+
+                .035,
+
+                .14,
+
+                18
+
+            ),
+
+            silverMaterial
+
+        );
+
+
+    engine.rotation.z =
+        Math.PI/2;
+
+
+    engine.position.set(
+
+        .035,
+
+        -.035,
+
+        z
+
+    );
+
+
+    airplane.add(
+        engine
+    );
+
+
+    const opening =
+        new THREE.Mesh(
+
+            new THREE.CircleGeometry(
+
+                .025,
+
+                16
+
+            ),
+
+            darkMaterial
+
+        );
+
+
+    opening.rotation.y =
+        Math.PI/2;
+
+
+    opening.position.set(
+
+        .108,
+
+        -.035,
+
+        z
+
+    );
+
+
+    airplane.add(
+        opening
+    );
+
+}
+
+
+createEngine(.13);
+
+createEngine(-.13);
+
+
+
+/* ============================================================
+   WINDOWS
+============================================================ */
+
+for(
+    let i=0;
+    i<6;
+    i++
+){
+
+    const windowMesh =
+        new THREE.Mesh(
+
+            new THREE.SphereGeometry(
+
+                .009,
+
+                8,
+
+                8
+
+            ),
+
+            darkMaterial
+
+        );
+
+
+    windowMesh.scale.z =
+        .45;
+
+
+    windowMesh.position.set(
+
+        .19 -
+        i*.055,
+
+        .025,
+
+        .069
+
+    );
+
+
+    airplane.add(
+        windowMesh
+    );
+
+}
+
+
+
+/* ============================================================
+   SAME SMALL AIRPLANE SIZE
+============================================================ */
+
+airplane.scale.set(
+
+    .70,
+
+    .70,
+
+    .70
+
+);
+
+
+scene.add(
+    airplane
+);
+
+
+
+/* ============================================================
+   ✈️ CONTINUOUS FRONT FLIGHT + INSTANT WRAP
+============================================================ */
+
+/*
+   IMPORTANT:
+
+   The airplane moves from LEFT → RIGHT.
+
+   When it reaches the RIGHT END:
+
+       RIGHT → IMMEDIATELY → LEFT
+
+   Then it starts flying again.
+
+   It never reverses.
+   It does not stay hidden behind Earth.
+*/
+
+
+let airplaneX =
+    -2.25;
+
+
+const airplaneMinX =
+    -2.25;
+
+
+const airplaneMaxX =
+     2.25;
+
+
+const airplaneSpeed =
+    .012;
+
+
+
+function updateAirplane(){
+
+
+    /* -----------------------------------------
+       MOVE AIRPLANE
+    ----------------------------------------- */
+
+    airplaneX +=
+        airplaneSpeed;
+
+
+
+    /* -----------------------------------------
+       INSTANT WRAP
+    ----------------------------------------- */
+
+    if(
+        airplaneX >
+        airplaneMaxX
+    ){
+
+        airplaneX =
+            airplaneMinX;
+
+    }
+
+
+
+    /* -----------------------------------------
+       CURVED FRONT PATH
+    ----------------------------------------- */
+
+    const pathRadius =
+        2.45;
+
+
+    const z =
+        Math.sqrt(
+
+            Math.max(
+
+                .75,
+
+                (pathRadius *
+                 pathRadius)
+
+                -
+
+                (airplaneX *
+                 airplaneX)
+
+            )
+
+        );
+
+
+
+    /* -----------------------------------------
+       SMALL NATURAL UP/DOWN MOTION
+    ----------------------------------------- */
+
+    const y =
+        .08 +
+
+        Math.sin(
+
+            (airplaneX /
+             pathRadius) *
+
+            Math.PI
+
+        ) *
+
+        .08;
+
+
+
+    /* -----------------------------------------
+       POSITION
+    ----------------------------------------- */
+
+    airplane.position.set(
+
+        airplaneX,
+
+        y,
+
+        z
+
+    );
+
+
+
+    /* -----------------------------------------
+       NEXT POSITION
+    ----------------------------------------- */
+
+    const nextX =
+        airplaneX +
+        .03;
+
+
+    const nextZ =
+        Math.sqrt(
+
+            Math.max(
+
+                .75,
+
+                (pathRadius *
+                 pathRadius)
+
+                -
+
+                (nextX *
+                 nextX)
+
+            )
+
+        );
+
+
+    const nextY =
+        .08 +
+
+        Math.sin(
+
+            (nextX /
+             pathRadius) *
+
+            Math.PI
+
+        ) *
+
+        .08;
+
+
+
+    /* -----------------------------------------
+       DIRECTION
+    ----------------------------------------- */
+
+    const direction =
+        new THREE.Vector3(
+
+            nextX -
+            airplaneX,
+
+            nextY -
+            y,
+
+            nextZ -
+            z
+
+        ).normalize();
+
+
+
+    /* -----------------------------------------
+       MAKE NOSE FACE FORWARD
+    ----------------------------------------- */
+
+    airplane.quaternion.setFromUnitVectors(
+
+        new THREE.Vector3(
+            1,
+            0,
+            0
+        ),
+
+        direction
+
+    );
+
+}
+
+
+
+/* ============================================================
+   ANIMATION
+============================================================ */
+
+function animate(){
+
+    requestAnimationFrame(
+        animate
+    );
+
+
+    /* Earth rotation */
+
+    earth.rotation.y +=
+        .0018;
+
+
+    /* Cloud rotation */
+
+    clouds.rotation.y +=
+        .0024;
+
+
+    /* ✈️ airplane */
+
+    updateAirplane();
+
+
+    /* Stars */
+
+    stars.rotation.y +=
+        .00015;
+
+
+    /* Render */
+
+    renderer.render(
+
+        scene,
+
+        camera
+
+    );
+
+}
+
+
+animate();
+
+
+
+/* ============================================================
+   RESIZE
+============================================================ */
+
+window.addEventListener(
+
+    "resize",
+
+    () => {
+
+
+        camera.aspect =
+
+            container.clientWidth /
+            container.clientHeight;
+
+
+        camera.updateProjectionMatrix();
+
+
+        renderer.setSize(
+
+            container.clientWidth,
+
+            container.clientHeight
+
+        );
+
+    }
+
+);
+
+</script>
+
+
+</body>
+
+</html>
